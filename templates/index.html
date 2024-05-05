@@ -8,6 +8,38 @@
     </head>
 
     <body>
-        Hellow Worldo
+        <!--start/stop scanning button-->
+        <button id="scanButton" onclick="toggleButton()">Start Scanning</button>
+
+        <!--changes start/stop button text-->
+        <script> 
+            function toggleButton() {
+                var button = document.getElementById('scanButton');
+                if (button.innerText === 'Start Scanning') {
+                    button.innerText = 'Stop Scanning';
+                } else {
+                    button.innerText = 'Start Scanning';
+                }
+            }
+        </script>
+        
+        <br><br>
+
+        <!--list showing all the past incidents-->
+        <label for="hr-select">Previous Incidents</label> 
+        <br>
+        <select name="incidents" multiple size="5">
+            <option value="indicent one">indicent one | 11/4/2024</option>
+            <option value="indicent two">indicent two | 11/4/2024</option>
+            <option value="indicent three">indicent three | 11/4/2024</option>
+            <option value="indicent four">indicent four | 11/4/2024</option>
+            <option value="indicent five">indicent five | 11/4/2024</option>
+            <option value="indicent six">indicent six | 11/4/2024</option>
+        </select>
+
+        <br><br>
+
+        <!--download button-->
+        <button id="downloadReport">Download Report</button> 
     </body>
 </html>
