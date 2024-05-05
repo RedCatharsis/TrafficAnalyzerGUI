@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Start/Stop Button{% endblock %}
+
+{% block content %}
+    <h1>Start/Stop Button</h1>
+    <button id="startStopButton" onclick="toggleButton()">{{ button_text }}</button>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function toggleButton() {
+            var button = document.getElementById('startStopButton');
+            if (button.innerText === 'START') {
+                button.innerText = 'STOP';
+            } else {
+                button.innerText = 'START';
+            }
+        }
+    </script>
+{% endblock %}

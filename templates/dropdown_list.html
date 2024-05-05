@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}List with Integrated Datepicker{% endblock %}
+
+{% block content %}
+    <h1>List with Integrated Datepicker</h1>
+    <select id="dateDropdown">
+        <option value="">Select Date</option>
+    </select>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(function() {
+            
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+
+            
+            for (var i = 0; i < 7; i++) {
+                var date = new Date();
+                date.setDate(date.getDate() - i);
+                var optionDate = date.toISOString().split('T')[0];
+                $("#dateDropdown").append('<option value="' + optionDate + '">' + optionDate + '</option>');
+            }
+
+            
+            $("#dateDropdown").datepicker({
+                dateFormat: "yy-mm-dd",
+                onSelect: function(dateText) {
+                    
+                    console.log("Selected date:", dateText);
+                    
+                }
+            });
+        });
+    </script>
+{% endblock %}
