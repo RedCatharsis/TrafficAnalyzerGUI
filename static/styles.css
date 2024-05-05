@@ -1,8 +1,8 @@
 #startStopButton {
-    background-color: #4CAF50;
-    border: none;
+    background-color: #c4a44b;
+    border: rgb(0, 0 ,0);
     color: white;
-    padding: 15px 32px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
