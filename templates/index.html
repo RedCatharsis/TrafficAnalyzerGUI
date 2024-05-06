@@ -5,53 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>index</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      display: flex;
-      flex-direction: column; 
-      justify-content: center;
-      align-items: center; 
-      min-height: 100vh;
-    }
 
-    h1, h2, label {
-      font-weight: bold;
-    }
+  <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename = 'styles.css') }}">
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 1em; 
-    }
-
-    button:hover {
-      background-color: #3e8e41;
-    }
-
-    #scanButton {
-    }
-
-    #downloadButton {
-    }
-
-    select {
-      border: 1px solid #ccc;
-      padding: 5px;
-      border-radius: 3px;
-      width: 200px;
-    }
-
-    option {
-      padding: 5px 10px;
-    }
-  </style>
 </head>
+
+<!-- <style> </style> tags eliminated and CSS content shifted to static/styles.css-->
 
 <body>
   <form action="/scan" method="POST">
@@ -60,15 +19,17 @@
 
   <br><br>
 
+      <!-- Changed option values from 'indicent' to 'incident' along with the associated text shown to the user-->
+
         <label for="hr-select">Previous Incidents</label> 
         <br>
         <select name="incidents" multiple size="5">
-            <option value="indicent one">indicent one | 11/4/2024</option>
-            <option value="indicent two">indicent two | 11/4/2024</option>
-            <option value="indicent three">indicent three | 11/4/2024</option>
-            <option value="indicent four">indicent four | 11/4/2024</option>
-            <option value="incident five">incident five | 11/4/2024</option>
-            <option value="incident six">incident six | 11/4/2024</option>
+            <option value="incident one">incident one | 11/4/2024</option>
+            <option value="incident two">incident two | 12/4/2024</option>
+            <option value="incident three">incident three | 13/4/2024</option>
+            <option value="incident four">incident four | 14/4/2024</option>
+            <option value="incident five">incident five | 15/4/2024</option>
+            <option value="incident six">incident six | 16/4/2024</option>
         </select>
 
   <br><br>

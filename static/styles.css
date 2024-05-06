@@ -32,4 +32,50 @@
     border-radius: 8px;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh;
+  }
 
+  h1, h2, label {
+    font-weight: bold;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1em; 
+  }
+
+  button:hover {
+    background-color: #3e8e41;
+  }
+
+  #scanButton {
+  }
+
+  #downloadButton {
+  }
+
+  select {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    width: 200px;
+  }
+
+  option {
+    padding: 5px 10px;
+  }
+
+/* shifted body {   } here from index.html 
+all other styling changes are to be made here*/
