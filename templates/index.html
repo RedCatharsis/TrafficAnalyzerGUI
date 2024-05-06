@@ -13,9 +13,17 @@
 <!-- <style> </style> tags eliminated and CSS content shifted to static/styles.css-->
 
 <body>
+
+<!--text code for popup
   <form action="/popup" method="POST">
-    <button type="submit" id="scanButton" onclick="toggleButton()">Start Scanning</button>
+    <button type="submit" id="popup">Start Scanning</button>
   </form>
+
+  <br><br>
+-->
+  
+
+  <button id="scanButton" onclick="toggleButton()">Start Scanning</button>
 
   <br><br>
 
@@ -34,7 +42,7 @@
 
   <br><br>
 
-  <button id="downloadButton">Download Report</button>
+  <button id="downloadButton" onclick="download()">Download Report</button>
 
   <script>
     function toggleButton() {
@@ -44,6 +52,10 @@
       } else {
         button.innerText = 'Start Scanning';
       }
+    }
+
+    function download() {
+      alert("Please select download location")
     }
   </script>
 </body>
