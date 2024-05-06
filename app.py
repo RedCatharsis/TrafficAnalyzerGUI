@@ -16,6 +16,10 @@ def scan(): #triggered when button is pressed
     else:
         return "Invalid request method"
 
+@app.route('/popup', methods=['POST'])
+def popup():
+    return render_template('popup.html')
+
 #app.config allows the app.py file to look for the static folder to use the CSS file in webpage
 app.config['STATIC_FOLDER'] = 'static'
 
