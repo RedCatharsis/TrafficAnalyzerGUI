@@ -19,8 +19,18 @@ def popup(text):
 #this forwards to another webpage where scan results are shown
 @app.route('/result', methods=['POST'])
 def result():
+
+    #assign previous incidents to the list
+    incidents = [
+        {'value': 'incident one', 'label': 'incident one | 11/4/2024'},
+        {'value': 'incident two', 'label': 'incident two | 12/4/2024'},
+        {'value': 'incident three', 'label': 'incident three | 13/4/2024'},
+        {'value': 'incident four', 'label': 'incident four | 14/4/2024'},
+        {'value': 'incident five', 'label': 'incident five | 15/4/2024'},
+        {'value': 'incident six', 'label': 'incident six | 16/4/2024'}
+    ]
     if request.method == 'POST':
-        return render_template('result.html')
+        return render_template('result.html', incidents=incidents)
     else:
         return 'Invalid request'
 

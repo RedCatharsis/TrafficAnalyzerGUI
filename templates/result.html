@@ -14,12 +14,9 @@
         <label for="hr-select">Previous Incidents</label> 
         <br>
         <select name="incidents" multiple size="5">
-            <option value="incident one">incident one | 11/4/2024</option>
-            <option value="incident two">incident two | 12/4/2024</option>
-            <option value="incident three">incident three | 13/4/2024</option>
-            <option value="incident four">incident four | 14/4/2024</option>
-            <option value="incident five">incident five | 15/4/2024</option>
-            <option value="incident six">incident six | 16/4/2024</option>
+            {% for incident in incidents %}
+                <option value="{{ incident['value'] }}">{{ incident['label'] }}</option>
+            {% endfor %}
         </select>
 
         <button id="downloadButton" onclick="download()">Download Report</button>
