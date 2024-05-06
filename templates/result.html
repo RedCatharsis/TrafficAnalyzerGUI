@@ -8,15 +8,41 @@
       
         <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename = 'styles.css') }}">
       
+        <script>
+
+            function updateText() {
+  
+                var selectedOption = document.getElementById("fruits").selectedOptions[0];
+                
+                var selectedValue = selectedOption.value;
+                
+                var textSnippet = document.getElementById("textSnippet");
+                
+                if (selectedValue === "Incident_1") {
+                  textSnippet.textContent = "- report 1 to be put here -";
+                } else if (selectedValue === "Incident_2") {
+                  textSnippet.textContent = "- report 2 to be put here -";
+                } else if (selectedValue === "Incident_3") {
+                  textSnippet.textContent = "- report 3 to be put here -";
+                } else if (selectedValue === "Incident_4") {
+                  textSnippet.textContent = "- report 4 to be put here -";
+                } else {
+                  textSnippet.textContent = "";
+                }
+              }
+
+        </script>
     </head>
     <body>
         <!--place holder for incident list-->
         <label for="hr-select">Previous Incidents</label> 
         <br>
-        <select name="incidents" multiple size="5">
-            {% for incident in incidents %}
-                <option value="{{ incident['value'] }}">{{ incident['label'] }}</option>
-            {% endfor %}
+        <select name="incidents" id="incidents" onChange = "updateText()">
+            <option value="null">-select a fruit-</option>
+            <option value="Incident_1">Incident 1</option>
+            <option value="Incident_2">Incident 2</option>
+            <option value="Incident_3">Incident 3</option>
+            <option value="Incident_4">Incident 4</option>
         </select>
 
         <button id="downloadButton" onclick="download()">Download Report</button>
