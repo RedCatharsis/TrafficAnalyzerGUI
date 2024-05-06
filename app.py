@@ -18,10 +18,9 @@ def scan(): #triggered when button is pressed
 
 #popup
 @app.route('/popup', methods=['POST'])
-def popup():
+def popup(text):
     if request.method == 'POST':
-        custom_text = "random text :3" #use this variable to modify popup text
-        return render_template('popup.html', custom_text=custom_text)
+        return render_template('popup.html', custom_text=text)
     else:
         return 'Invalid request'
 
