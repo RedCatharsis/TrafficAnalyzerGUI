@@ -47,9 +47,15 @@
 
         <br><br>
 
-        <!--download button-->
-        <button id="downloadReport">Download Report</button> 
+        {% if message %}
+        <div class="alert alert-dismissible alert-{{ message[0][1] }}">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            {{ message[0][0] }}
+        </div>
+        {% endif %}
+        <form action="/downloadButton" method="POST">
+            <button type="submit" class="btn btn-primary">Download Report</button>
+        </form>
 
-        <br><br>
     </body>
 </html>
