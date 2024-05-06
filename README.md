@@ -1,2 +1,2 @@
 # TrafficAnalyzerGUI
-GUI for a traffic analyzer/packet sniffer application using Flask
+GUI for a traffic analyzer/packet sniffer application using Flask and HTML/CSS
