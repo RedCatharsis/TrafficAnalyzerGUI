@@ -14,35 +14,11 @@
 
 <body>
 
-<!--text code for popup
-  <form action="/popup" method="POST">
-    <button type="submit" id="popup">Start Scanning</button>
+  <form action="/result" method="POST">
+    <button type="submit" id="scanButton">Start Scanning</button>
   </form>
 
   <br><br>
--->
-  
-
-  <button id="scanButton" onclick="toggleButton()">Start Scanning</button>
-
-  <br><br>
-
-      <!-- Changed option values from 'indicent' to 'incident' along with the associated text shown to the user-->
-
-        <label for="hr-select">Previous Incidents</label> 
-        <br>
-        <select name="incidents" multiple size="5">
-            <option value="incident one">incident one | 11/4/2024</option>
-            <option value="incident two">incident two | 12/4/2024</option>
-            <option value="incident three">incident three | 13/4/2024</option>
-            <option value="incident four">incident four | 14/4/2024</option>
-            <option value="incident five">incident five | 15/4/2024</option>
-            <option value="incident six">incident six | 16/4/2024</option>
-        </select>
-
-  <br><br>
-
-  <button id="downloadButton" onclick="download()">Download Report</button>
 
   <script>
     function toggleButton() {
@@ -52,10 +28,6 @@
       } else {
         button.innerText = 'Start Scanning';
       }
-    }
-
-    function download() {
-      alert("Please select download location")
     }
   </script>
 </body>
