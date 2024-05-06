@@ -4,17 +4,19 @@
         <meta charset="UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>index</title>
     </head>
 
     <body>
         <!--start/stop scanning button-->
-        <button id="scanButton" onclick="toggleButton()">Start Scanning</button>
+        <form action="/scan" method="POST">
+            <button type="submit" id="scanButton" onclick="toggleButton()">Start Scanning</button>
+        </form>
 
         <!--changes start/stop button text-->
         <script> 
             function toggleButton() {
-                var button = document.getElementById('scanButton');
+                var button = index.getElementById('scanButton');
                 if (button.innerText === 'Start Scanning') {
                     button.innerText = 'Stop Scanning';
                 } else {
@@ -25,7 +27,13 @@
         
         <br><br>
 
-        <!--list showing all the past incidents-->
+        <!--
+            list showing all the past incidents
+
+            includes mock incidents
+
+            need to migrate code from dropdown_list.html
+        -->
         <label for="hr-select">Previous Incidents</label> 
         <br>
         <select name="incidents" multiple size="5">
@@ -41,5 +49,7 @@
 
         <!--download button-->
         <button id="downloadReport">Download Report</button> 
+
+        <br><br>
     </body>
 </html>
