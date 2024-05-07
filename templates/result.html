@@ -17,6 +17,7 @@
           <option value="{{ incident['value'] }}">{{ incident['label'] }}</option>
         {% endfor %}
       </select>
+      
       <script>
         function download() {
           var selectElement = document.getElementById("list");
@@ -35,7 +36,7 @@
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ filename: selectedOptions.join(", ") })
+              body: JSON.stringify({ filename: selectedOptions.join(", ")})
             })
             .then(response => response.json())
             .then(data => console.log(data))

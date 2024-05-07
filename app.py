@@ -33,7 +33,6 @@ def result():
         for filename in os.listdir(foldername):
             if filename.endswith(filetype):
                 files.append({'value': filename, 'label': filename.removesuffix(filetype)})
-                print(filename)
     
     if request.method == 'POST':
         #any code that is run when start scan button is pressed goes in there before the return
@@ -46,6 +45,8 @@ def download():
     if request.method == 'POST':
         data = request.json
         filename = data.get('filename')
+
+        print(filename)
 
         #file can be accessed using filename to look up the file in folder
 
