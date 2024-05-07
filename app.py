@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, get_flashed_messages, url_for
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -22,17 +23,21 @@ def result():
 
     #assign previous incidents to the list
     #all the generated incident report files can be accesed and their names be used to create entires 
-    incidents = [
-        {'value': 'incident one', 'label': 'incident one | 11/4/2024'},
-        {'value': 'incident two', 'label': 'incident two | 12/4/2024'},
-        {'value': 'incident three', 'label': 'incident three | 13/4/2024'},
-        {'value': 'incident four', 'label': 'incident four | 14/4/2024'},
-        {'value': 'incident five', 'label': 'incident five | 15/4/2024'},
-        {'value': 'incident six', 'label': 'incident six | 16/4/2024'}
-    ]
+    #currently loads html files from templates folder. change folder name and file type
+
+    foldername = "templates"
+    filetype = ".html"
+
+    files = []
+    if os.path.isdir(foldername):
+        for filename in os.listdir(foldername):
+            if filename.endswith(filetype):
+                files.append({'value': filename, 'label': filename.removesuffix(filetype)})
+                print(filename)
+    
     if request.method == 'POST':
         #any code that is run when start scan button is pressed goes in there before the return
-        return render_template('result.html', incidents=incidents)
+        return render_template('result.html', incidents=files)
     else:
         return 'Invalid request'   
     
