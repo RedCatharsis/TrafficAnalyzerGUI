@@ -41,13 +41,12 @@ def result():
         return 'Invalid request'   
     
 #when an incident is selected in the incidents list this code is excecuted
+@app.route('/download', methods=['POST'])
 def download():
     if request.method == 'POST':
         data = request.json
         filename = data.get('filename')
-
-        print(filename)
-
+        
         #file can be accessed using filename to look up the file in folder
 
         return result()
