@@ -6,51 +6,44 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>result</title>
       
-        <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename = 'styles.css') }}">
-      
-        <script>
-
-            function updateText() {
-  
-                var selectedOption = document.getElementById("fruits").selectedOptions[0];
-                
-                var selectedValue = selectedOption.value;
-                
-                var textSnippet = document.getElementById("textSnippet");
-                
-                if (selectedValue === "Incident_1") {
-                  textSnippet.textContent = "- report 1 to be put here -";
-                } else if (selectedValue === "Incident_2") {
-                  textSnippet.textContent = "- report 2 to be put here -";
-                } else if (selectedValue === "Incident_3") {
-                  textSnippet.textContent = "- report 3 to be put here -";
-                } else if (selectedValue === "Incident_4") {
-                  textSnippet.textContent = "- report 4 to be put here -";
-                } else {
-                  textSnippet.textContent = "";
-                }
-              }
-
-        </script>
+        <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename = 'styles.css') }}"> 
     </head>
     <body>
-        <!--place holder for incident list-->
-        <label for="hr-select">Previous Incidents</label> 
-        <br>
-        <select name="incidents" id="incidents" onChange = "updateText()">
-            <option value="null">-select a fruit-</option>
-            <option value="Incident_1">Incident 1</option>
-            <option value="Incident_2">Incident 2</option>
-            <option value="Incident_3">Incident 3</option>
-            <option value="Incident_4">Incident 4</option>
-        </select>
+      <label id="head">Select Incident to Download</label>
+      <br>
+      <!--adds in elements based on function input from python code-->
+      <select id="list" name="incidents" multiple size="5" onclick="download()">
+        {% for incident in incidents %}
+          <option value="{{ incident['value'] }}">{{ incident['label'] }}</option>
+        {% endfor %}
+      </select>
+      <script>
+        function download() {
+          var selectElement = document.getElementById("list");
+          var selectedOptions = [];
+          for (var i = 0; i < selectElement.selectedOptions.length; i++) {
+            selectedOptions.push(selectElement.selectedOptions[i].text);
+          }
+          if (selectedOptions.length > 0) {
 
-        <button id="downloadButton" onclick="download()">Download Report</button>
+            //shows a popup for download notification
+            alert("Please choose download path for file: " + selectedOptions.join(", ") + ".csv");
 
-        <script>
-            function download() {
-                alert("Please select download location")
-            }
-        </script>
+            //calls upton download() and passes file name 
+            fetch('/download', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ filename: selectedOptions.join(", ") })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+          } else {
+            alert("Please select file to download");
+          }
+        }
+      </script>
     </body>
 </html>

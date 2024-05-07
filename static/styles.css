@@ -63,6 +63,17 @@ body {
 
   option {
     padding: 5px 10px;
+    font-size: 16px
+  }
+
+  #head {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  #list {
+    border: 2px solid #3498db;
+    width: 300px;
   }
 
 /* shifted body {   } here from index.html 
